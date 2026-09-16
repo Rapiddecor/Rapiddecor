@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Wedding of Rizky & Sarah | Islamic Elegant</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Amiri:ital,wght@0,400;1,400&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        :root{--ink:#263d35;--emerald:#1f5a4b;--green:#427968;--gold:#bd9957;--gold-light:#ead8ac;--cream:#fbf8ef;--paper:#f2eee2;--line:#ddd5c0;--white:#fff;--shadow:0 18px 48px rgba(38,61,53,.12)}
+        *{box-sizing:border-box;margin:0;padding:0;scroll-behavior:smooth}
+        body{font-family:'DM Sans',sans-serif;color:var(--ink);background:radial-gradient(circle at 15% 10%,rgba(189,153,87,.13),transparent 23%),var(--cream);line-height:1.6;overflow-x:hidden}
+        body.locked{overflow:hidden;height:100vh}
+        .serif{font-family:'Playfair Display',serif}
+        .arabic{font-family:'Amiri',serif}
+        .gold{color:var(--gold)}
+        
+        body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.2;background-image:linear-gradient(45deg,transparent 46%,rgba(189,153,87,.2) 47%,rgba(189,153,87,.2) 53%,transparent 54%),linear-gradient(-45deg,transparent 46%,rgba(31,90,75,.12) 47%,rgba(31,90,75,.12) 53%,transparent 54%);background-size:34px 34px;mask-image:linear-gradient(to bottom,#000,transparent 70%)}
+        
+        #cover{position:fixed;inset:0;z-index:30;display:grid;place-items:center;text-align:center;padding:24px;color:#fff;background:linear-gradient(135deg,rgba(21,60,49,.85),rgba(29,48,42,.4)),url('1.png') center/cover;transition:transform 1.2s cubic-bezier(.77,0,.175,1)}
+        #cover.open{transform:translateY(-100%);pointer-events:none}
+        .cover-inner{max-width:600px;animation:rise 1s cubic-bezier(.16,1,.3,1) both}
+        .eyebrow{font-size:.68rem;letter-spacing:4px;text-transform:uppercase;font-weight:700;color:var(--gold)}
+        #cover .eyebrow{color:var(--gold-light)}
+        .cover-verse{font-size:1.5rem;margin-bottom:14px;color:var(--gold-light)}
+        .cover-title{font-size:clamp(3.7rem,9vw,7rem);line-height:.9;font-weight:500;margin:12px 0}
+        .cover-date{letter-spacing:2px;font-size:.82rem}
+        .guest{max-width:390px;margin:34px auto 26px;padding:18px 24px;border:1px solid rgba(234,216,172,.5);border-radius:8px;background:rgba(255,255,255,.1);backdrop-filter:blur(12px)}
+        .guest small{opacity:.8}
+        .guest-name{font-size:1.2rem;font-weight:700;margin-top:4px}
+        .guest-note{font-size:.7rem;margin-top:8px;opacity:.75;font-style:italic;line-height:1.3}
+        
+        .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:0;border-radius:999px;padding:13px 24px;text-decoration:none;cursor:pointer;font:600 .82rem 'DM Sans',sans-serif;transition:.35s ease}
+        .btn-light{background:var(--gold-light);color:var(--emerald)}
+        .btn-main{background:var(--emerald);color:#fff}
+        .btn:hover{transform:translateY(-3px);box-shadow:0 12px 24px rgba(31,90,75,.22);background:var(--gold);color:var(--ink)}
+        
+        main,footer{width:min(calc(100% - 40px),1180px);margin:auto}
+        section{position:relative;padding:110px 0;border-bottom:1px solid var(--line);scroll-margin-top:24px}
+        section:before,section:after{content:"";position:absolute;left:50%;transform:translateX(-50%);width:42px;height:1px;background:var(--gold);bottom:-1px}
+        .section-head{text-align:center;max-width:690px;margin:0 auto 44px}
+        .section-head h2{font-size:clamp(2.4rem,5vw,4.5rem);font-weight:500;line-height:1.06;margin:10px 0 14px}
+        .section-head p{color:#728077}
+        .ornament{display:flex;align-items:center;justify-content:center;gap:10px;color:var(--gold);font-size:1.1rem;margin:16px 0}
+        .ornament:before,.ornament:after{content:"";width:55px;height:1px;background:var(--gold)}
+        
+        #home{min-height:700px;display:grid;place-items:center;text-align:center}
+        .home-title{font-size:clamp(4.2rem,10vw,9rem);line-height:.84;font-weight:500;color:var(--emerald)}
+        .home-title em{color:var(--gold);font-weight:400}
+        .home-copy{max-width:540px;margin:28px auto 0;color:#728077}
+        .hero-frame{width:min(100%,600px);height:330px;margin:42px auto 0;border:1px solid var(--gold);padding:8px;position:relative}
+        .hero-frame:before,.hero-frame:after{content:"";position:absolute;width:32px;height:32px;border:1px solid var(--gold);background:var(--cream);transform:rotate(45deg);z-index:1}
+        .hero-frame:before{left:-17px;top:50%}
+        .hero-frame:after{right:-17px;top:50%}
+        .hero-image{width:100%;height:100%;background:linear-gradient(rgba(31,90,75,.1),rgba(31,90,75,.1)),url('2.png') center/cover}
+        .countdown{display:flex;justify-content:center;gap:10px;margin-top:30px}
+        .countdown div{min-width:70px;padding:11px 6px;border-top:2px solid var(--gold);background:rgba(255,255,255,.4)}
+        .countdown strong{display:block;font-size:1.45rem}
+        .countdown span{font-size:.64rem;letter-spacing:1px;text-transform:uppercase;color:#728077}
+        
+        .couple-grid,.event-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+        .soft-card{padding:34px;border:1px solid rgba(221,213,192,.9);background:rgba(255,255,255,.72);box-shadow:0 7px 25px rgba(38,61,53,.04);transition:.45s ease}
+        .soft-card:hover{transform:translateY(-7px);box-shadow:var(--shadow);border-color:var(--gold)}
+        .couple-card{text-align:center;border-radius:4px}
+        .couple-img{width:172px;height:172px;object-fit:cover;border-radius:50%;padding:7px;border:1px solid var(--gold);filter:saturate(.8);margin-bottom:17px}
+        .couple-card h3,.event-card h3{font-size:2rem;font-weight:500}
+        .couple-card p,.event-card p{font-size:.86rem;color:#728077}
+        .event-card{min-height:270px;display:flex;flex-direction:column;justify-content:center;border-top:3px solid var(--gold)}
+        .event-card .eyebrow{color:var(--gold)}
+        .event-time{font-weight:700;color:var(--ink)!important;margin:8px 0}
+        
+        .story-grid{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center}
+        .story-photo{height:410px;border:1px solid var(--gold);padding:8px;background:url('4.png') center/cover;background-clip:padding-box}
+        .timeline{border-right:1px solid var(--gold);padding-right:38px;text-align:right}
+        .timeline article{position:relative;padding:0 0 38px}
+        .timeline article:after{content:"";position:absolute;right:-44px;top:6px;width:11px;height:11px;background:var(--gold);border:3px solid var(--cream);box-shadow:0 0 0 1px var(--emerald);border-radius:50%}
+        .timeline b{font-size:.7rem;letter-spacing:3px;color:var(--gold)}
+        .timeline h3{font-size:1.7rem;font-weight:500;margin:4px 0}
+        .timeline p{color:#728077;font-size:.88rem}
+        .parallax-motif{height:250px;margin-top:45px;display:grid;place-items:center;overflow:hidden;border:1px solid rgba(234,216,172,.7);background:linear-gradient(rgba(31,90,75,.7),rgba(31,90,75,.7)),url('1.png') center/cover fixed;color:#fff}
+        .parallax-motif span{font-size:2.2rem;animation:float 4s ease-in-out infinite}
+        
+        .gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+        .gallery-item{height:225px;overflow:hidden;cursor:pointer;border:1px solid var(--gold-light);transition:.4s ease}
+        .gallery-item:nth-child(3n+1){height:462px;grid-row:span 2}
+        .gallery-item:hover{transform:translateY(-5px);box-shadow:var(--shadow)}
+        .gallery-item img{width:100%;height:100%;object-fit:cover;filter:saturate(.78);transition:.5s}
+        .gallery-item:hover img{transform:scale(1.07);filter:saturate(1)}
+
+        .video{aspect-ratio:16/9;background:var(--emerald);overflow:hidden;border:1px solid var(--gold);padding:8px}
+        .video iframe,.map-frame{width:100%;height:100%;border:0}
+        .map-box{padding:10px;background:#fff;border:1px solid var(--line);box-shadow:var(--shadow)}
+        .map-frame{height:390px}
+        .map-caption{display:flex;justify-content:space-between;gap:16px;padding:14px 6px 3px;color:#728077;font-size:.82rem}
+        .map-caption strong{display:block;color:var(--ink)}
+        .map-caption a{color:var(--emerald);font-weight:700;white-space:nowrap}
+        
+        .gift{max-width:560px;margin:auto;text-align:center}
+        .gift-quote{font:italic 1.25rem/1.6 'Playfair Display',serif!important;color:var(--ink)!important;max-width:650px!important;margin:24px auto 34px!important;padding:20px 30px;position:relative}
+        .gift-quote:before,.gift-quote:after{color:var(--gold);font:2.7rem/1 'Playfair Display',serif;position:absolute}
+        .gift-quote:before{content:"“";left:0;top:8px}
+        .gift-quote:after{content:"”";right:0;bottom:0}
+        .qris{padding:24px;border:1px solid var(--line);background:#fff;box-shadow:var(--shadow);border-radius:8px}
+        .qris img{width:min(100%,280px);aspect-ratio:1;object-fit:contain}
+        .qris-note{font-size:.82rem;color:#728077;margin:16px 0}
+        
+        .bank-cards{display:grid;gap:16px;margin-top:24px;text-align:left}
+        .bank-card{padding:20px;border:1px solid var(--line);background:#fff;border-radius:8px;box-shadow:0 4px 12px rgba(0,0,0,.03);display:flex;justify-content:space-between;align-items:center;gap:12px}
+        .bank-info h4{font-size:.9rem;color:var(--emerald)}
+        .bank-info p{font-size:1.1rem;font-weight:700;margin:2px 0;letter-spacing:1px}
+        .bank-info small{font-size:.78rem;color:#728077}
+
+        .rsvp{max-width:720px;margin:auto}
+        .form-group{margin-bottom:17px}
+        .form-group label{font-size:.78rem;font-weight:700}
+        .form-control{width:100%;margin-top:7px;padding:15px 17px;border:1px solid #d7d2c2;background:rgba(255,255,255,.75);font:inherit;outline:0;transition:.25s;border-radius:4px}
+        .form-control:focus{border-color:var(--gold);background:#fff;box-shadow:0 0 0 4px rgba(189,153,87,.15)}
+        .attendance{display:flex;gap:10px;margin-top:7px}
+        .attendance button{flex:1;padding:12px 16px;border:1px solid var(--line);border-radius:999px;background:rgba(255,255,255,.72);color:#728077;font:inherit;cursor:pointer;transition:.3s}
+        .attendance button:hover{transform:translateY(-2px);border-color:var(--gold)}
+        .attendance .active{background:var(--emerald);color:#fff;border-color:var(--emerald);box-shadow:0 8px 18px rgba(31,90,75,.16)}
+        .attendance i{margin-right:7px;color:var(--gold)}
+        .attendance .active i{color:var(--gold-light)}
+        
+        .wishes{display:grid;gap:12px;margin-top:28px;max-height:420px;overflow-y:auto;padding-right:10px;scroll-behavior:smooth}
+        .wishes::-webkit-scrollbar{width:6px}
+        .wishes::-webkit-scrollbar-track{background:rgba(221,213,192,.3);border-radius:10px}
+        .wishes::-webkit-scrollbar-thumb{background:var(--gold);border-radius:10px}
+        .wish{padding:18px 22px;border:1px solid var(--line);background:rgba(255,255,255,.7);transition:.3s;border-radius:8px;box-shadow:0 4px 12px rgba(0,0,0,.02)}
+        .wish:hover{transform:translateX(6px);background:#fff;border-color:var(--gold)}
+        .wish-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;gap:10px}
+        .wish-name{font-weight:700;color:var(--ink);font-size:.95rem}
+        .wish-status{font-size:.75rem;padding:3px 12px;border-radius:999px;background:rgba(31,90,75,.1);color:var(--emerald);font-weight:600;white-space:nowrap}
+        .wish-status.absent{background:rgba(189,153,87,.15);color:#8d6824}
+        .wish p{font-size:.88rem;color:#55635b;margin:0;line-height:1.5}
+
+        footer{text-align:center;position:relative;padding:112px 20px 145px}
+        footer:before{content:"";position:absolute;top:0;left:50%;height:60px;width:1px;background:linear-gradient(var(--gold),transparent)}
+        footer:after{content:"✦";position:absolute;top:49px;left:50%;transform:translateX(-50%);padding:0 16px;background:var(--cream);color:var(--gold)}
+        .footer-kicker{font-size:.68rem;letter-spacing:4px;text-transform:uppercase;color:var(--emerald);font-weight:700}
+        .footer-title{font-size:clamp(2.8rem,7vw,5.2rem);line-height:1;margin:14px 0;color:var(--emerald)}
+        .footer-quote{max-width:650px;margin:0 auto 12px;font:italic 1.25rem/1.6 'Playfair Display',serif}
+        .footer-copy{max-width:570px;margin:0 auto 30px;color:#728077;font-size:.88rem}
+        .signature{font:italic 1.7rem 'Playfair Display',serif;color:var(--gold);margin-bottom:40px}
+        .brand-label{font-size:.65rem;letter-spacing:3px;text-transform:uppercase;color:#999;margin-bottom:14px}
+        .brand-links{display:flex;justify-content:center;gap:10px;flex-wrap:wrap}
+        .brand-links a{padding:10px 17px;border:1px solid var(--line);border-radius:999px;color:var(--ink);text-decoration:none;font-size:.78rem;transition:.3s}
+        .brand-links a:hover{background:var(--emerald);color:#fff;transform:translateY(-2px)}
+        
+        .bottom-nav{position:fixed;z-index:10;left:50%;bottom:18px;transform:translateX(-50%);display:flex;gap:4px;max-width:calc(100% - 24px);overflow-x:auto;padding:7px;background:rgba(255,255,255,.8);backdrop-filter:blur(18px);border:1px solid #fffe;border-radius:999px;box-shadow:0 14px 40px rgba(38,61,53,.16);scrollbar-width:none}
+        .bottom-nav::-webkit-scrollbar{display:none}
+        .bottom-nav a{color:#728077;white-space:nowrap;text-decoration:none;padding:8px 12px;border-radius:999px;font-size:.68rem;transition:.3s}
+        .bottom-nav a i{display:block;text-align:center;margin-bottom:3px}
+        .bottom-nav a.active,.bottom-nav a:hover{color:var(--emerald);background:rgba(189,153,87,.18);transform:translateY(-2px)}
+        
+        .fab{position:fixed;right:20px;bottom:82px;z-index:9;width:46px;height:46px;border:1px solid #fffe;border-radius:50%;display:grid;place-items:center;background:var(--emerald);color:#fff;cursor:pointer;box-shadow:0 10px 25px rgba(38,61,53,.2);transition:.3s}
+        .fab:hover{transform:translateY(-4px);background:var(--gold);color:var(--ink)}
+        #top-btn{bottom:138px;display:none;background:rgba(255,255,255,.9);color:var(--emerald);border-color:var(--line)}
+        
+        #lightbox{display:none;position:fixed;inset:0;z-index:40;background:#18362edb;align-items:center;justify-content:center;padding:20px}
+        #lightbox.show{display:flex}
+        #lightbox-image{max-width:min(88vw,1100px);max-height:80vh;object-fit:contain}
+        .lightbox-btn{position:absolute;width:44px;height:44px;border:1px solid #fff5;border-radius:50%;background:#244a3ddd;color:#fff;cursor:pointer;transition:.25s}
+        .lightbox-btn:hover{background:var(--gold);color:var(--ink);transform:scale(1.08)}
+        #lightbox-close{right:24px;top:22px}
+        #lightbox-prev{left:24px;top:50%}
+        #lightbox-next{right:24px;top:50%}
+        #lightbox-count{position:absolute;bottom:22px;color:#fff;font-size:.78rem}
+        
+        .toast{position:fixed;top:20px;right:20px;background:var(--emerald);color:#fff;padding:12px 20px;border-radius:8px;box-shadow:0 10px 20px rgba(0,0,0,.15);z-index:99;display:none;font-size:.85rem;animation:rise .3s ease}
+        
+        /* ANIMASI REVEAL DIBUAT BISA MENGULANG (RE-TRIGGERABLE) */
+        .reveal{opacity:0;transform:translateY(40px) scale(.98);transition:opacity .8s cubic-bezier(.16,1,.3,1),transform .8s cubic-bezier(.16,1,.3,1)}
+        .reveal.visible{opacity:1;transform:none}
+        
+        @keyframes rise{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+        @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
+        
+        @media(max-width:900px){.hero-grid,.story-grid{grid-template-columns:1fr;gap:34px}.hero-image{height:390px}.gallery{grid-template-columns:repeat(3,1fr)}}
+        @media(max-width:600px){main,footer{width:calc(100% - 32px)}section{padding:76px 0}.couple-grid,.event-grid{grid-template-columns:1fr}.gallery{grid-template-columns:repeat(2,1fr);gap:8px}.gallery-item,.gallery-item:nth-child(3n+1){height:170px;grid-row:auto}.map-frame{height:290px}.map-caption{flex-direction:column;gap:7px}.countdown{gap:5px}.countdown div{min-width:62px}.bottom-nav{bottom:9px;padding:6px;gap:2px}.bottom-nav a{padding:7px 9px;font-size:.62rem}.fab{right:14px;width:42px;height:42px}#music-btn{bottom:72px}#top-btn{bottom:124px}footer{padding:92px 8px 125px}.footer-quote,.gift-quote{font-size:1.07rem!important}#lightbox{padding:50px 10px}#lightbox-prev,#lightbox-next{top:auto;bottom:15px}#lightbox-prev{left:calc(50% - 52px)}#lightbox-next{right:calc(50% - 52px)}#lightbox-close{top:12px;right:13px}}
+        @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation:none!important;transition:none!important}}
+    </style>
+</head>
+<body class="locked">
+
+    <div id="toast" class="toast">Teks berhasil disalin!</div>
+
+    <div id="cover">
+        <div class="cover-inner">
+            <p class="cover-verse arabic">Bismillahirrahmanirrahim</p>
+            <p class="eyebrow">A blessed wedding invitation</p>
+            <h1 class="cover-title serif">Rizky & Sarah</h1>
+            <p class="cover-date">25 DESEMBER 2026</p>
+            <div class="guest">
+                <small>Kepada Yth. Bapak/Ibu/Saudara/i</small>
+                <div class="guest-name namatamu">Tamu Undangan</div>
+                <div class="guest-note">*Mohon maaf apabila ada kesalahan penulisan nama atau gelar</div>
+            </div>
+            <button class="btn btn-light" id="open-btn"><i class="fa-regular fa-envelope"></i> Buka Undangan</button>
+        </div>
+    </div>
+
+    <audio id="audio" loop>
+        <source src="https://janurkuning.my.id/wp-content/uploads/2026/07/Tiara-Andini-Arsy-Widianto-Lagu-Pernikahan-Kita.mp3" type="audio/mp3">
+    </audio>
+    <button class="fab" id="music-btn" title="Musik"><i class="fa-solid fa-music"></i></button>
+    <button class="fab" id="top-btn" title="Ke atas"><i class="fa-solid fa-arrow-up"></i></button>
+
+    <main>
+        <section id="home">
+            <div>
+                <p class="eyebrow">Bismillah, we begin</p>
+                <h2 class="home-title serif">Rizky <em>&</em><br>Sarah</h2>
+                <div class="ornament">✦</div>
+                <p class="home-copy">Dengan memohon rahmat dan ridho Allah SWT, kami mengundang Anda untuk hadir di hari penuh keberkahan kami.</p>
+                <div class="countdown">
+                    <div><strong id="days">00</strong><span>Hari</span></div>
+                    <div><strong id="hours">00</strong><span>Jam</span></div>
+                    <div><strong id="mins">00</strong><span>Menit</span></div>
+                    <div><strong id="secs">00</strong><span>Detik</span></div>
+                </div>
+                <div class="hero-frame">
+                    <div class="hero-image"></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="couple">
+            <div class="section-head">
+                <p class="eyebrow">The blessed couple</p>
+                <h2 class="serif">Pasangan Bahagia</h2>
+                <div class="ornament">✦</div>
+                <p>Mahasuci Allah yang telah menciptakan makhluk-Nya berpasang-pasangan untuk membina keluarga sakinah, mawaddah, warahmah.</p>
+            </div>
+            <div class="couple-grid">
+                <article class="soft-card couple-card">
+                    <img class="couple-img" src="8.png" alt="Mempelai Wanita">
+                    <h3 class="serif">Sarah Amelia, S.Pd</h3>
+                    <p>Putri dari<br><b>Bapak Ahmad Hidayat & Ibu Sri Wahyuni</b></p>
+                </article>
+                <article class="soft-card couple-card">
+                    <img class="couple-img" src="7.png" alt="Mempelai Pria">
+                    <h3 class="serif">Rizky Ramadhan, S.Kom</h3>
+                    <p>Putra dari<br><b>Bapak Bambang Santoso & Ibu Maria Ulfah</b></p>
+                </article>
+            </div>
+        </section>
+
+        <section id="story">
+            <div class="story-grid">
+                <div>
+                    <div class="section-head">
+                        <p class="eyebrow">A blessed journey</p>
+                        <h2 class="serif">Cerita Cinta</h2>
+                        <div class="ornament">✦</div>
+                        <p>Setiap langkah menjadi lebih berarti ketika dijalani dengan doa dan niat yang baik.</p>
+                    </div>
+                    <div class="story-photo"></div>
+                </div>
+                <div class="timeline">
+                    <article>
+                        <b>2022</b>
+                        <h3 class="serif">Awal Berkenalan</h3>
+                        <p>Berawal dari pertemuan sederhana, kami belajar mengenal satu sama lain dengan penuh ketulusan.</p>
+                    </article>
+                    <article>
+                        <b>2024</b>
+                        <h3 class="serif">Melangkah Bersama</h3>
+                        <p>Dalam suka dan cerita sehari-hari, kami belajar menjaga satu sama lain dalam doa.</p>
+                    </article>
+                    <article>
+                        <b>2026</b>
+                        <h3 class="serif">Satu Janji</h3>
+                        <p>Dengan restu keluarga, kami mengikat niat untuk membangun rumah tangga yang penuh keberkahan.</p>
+                    </article>
+                </div>
+            </div>
+            <div class="parallax-motif" data-parallax><span class="serif">Love, faith & forever</span></div>
+        </section>
+
+        <section id="event">
+            <div class="section-head">
+                <p class="eyebrow">Save the date</p>
+                <h2 class="serif">Akad & Resepsi</h2>
+                <div class="ornament">✦</div>
+            </div>
+            <div class="event-grid">
+                <article class="soft-card event-card">
+                    <p class="eyebrow">16 Desember 2026</p>
+                    <h3 class="serif">Akad Nikah</h3>
+                    <p class="event-time">09:00 WIB s/d selesai</p>
+                    <p>Kediaman Mempelai Wanita<br>Jl. Melati No. 123, Bandung</p>
+                </article>
+                <article class="soft-card event-card">
+                    <p class="eyebrow">25 Desember 2026</p>
+                    <h3 class="serif">Resepsi Pernikahan</h3>
+                    <p class="event-time">10:00 WIB s/d selesai</p>
+                    <p>Gedung Serbaguna Utama<br>Jl. Sudirman No. 45, Bandung</p>
+                </article>
+            </div>
+            <div class="map-box" style="margin-top: 24px;">
+                <iframe class="map-frame" src="https://www.google.com/maps?q=Bandung&output=embed" title="Lokasi acara" loading="lazy" allowfullscreen></iframe>
+                <div class="map-caption">
+                    <span><strong>Gedung Serbaguna Utama</strong>Jl. Sudirman No. 45, Bandung</span>
+                    <a href="https://www.google.com/maps?q=Bandung" target="_blank" rel="noopener">Buka penuh <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                </div>
+            </div>
+        </section>
+
+        <section id="gallery">
+            <div class="section-head">
+                <p class="eyebrow">Moments of gratitude</p>
+                <h2 class="serif">Our Gallery</h2>
+            </div>
+
+            <div class="gallery">
+                <div class="gallery-item"><img src="1.png" alt="Foto 1"></div>
+                <div class="gallery-item"><img src="2.png" alt="Foto 2"></div>
+                <div class="gallery-item"><img src="3.png" alt="Foto 3"></div>
+                <div class="gallery-item"><img src="4.png" alt="Foto 4"></div>
+                <div class="gallery-item"><img src="5.png" alt="Foto 5"></div>
+                <div class="gallery-item"><img src="6.png" alt="Foto 6"></div>
+                <div class="gallery-item"><img src="7.png" alt="Foto 7"></div>
+                <div class="gallery-item"><img src="8.png" alt="Foto 8"></div>
+                
+            </div>
+        </section>
+        
+        <section id="video">
+            <div class="section-head">
+                <p class="eyebrow">A moving memory</p>
+                <h2 class="serif">Video Prewed</h2>
+            </div>
+            <div class="video">
+                <iframe id="youtube-video" src="https://www.youtube.com/embed/ojodJ2BEmZk?si=sFoGK6nUvbJW2OXb=1" title="Video prewedding" loading="lazy" allowfullscreen allow="autoplay"></iframe>
+            </div>
+        </section>
+        
+        <section id="gift">
+            <div class="section-head">
+                <p class="eyebrow">A little kindness</p>
+                <h2 class="serif">Wedding Gift</h2>
+                <p class="gift-quote">Doa dan restu Anda adalah hadiah paling indah yang dapat kami terima.</p>
+            </div>
+            <div class="gift">
+                <div class="qris">
+                    <img src="qris.png" alt="QRIS Digital Gift" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+                    <div class="qris-fallback" style="display:none; padding: 40px 20px; color: #728077;">
+                        <i class="fa-solid fa-qrcode" style="font-size: 2.5rem; color: var(--gold); display: block; margin-bottom: 10px;"></i>
+                        Scan QRIS untuk Tanda Kasih
+                    </div>
+                </div>
+                <p class="qris-note">Jika berkenan, tanda kasih dapat diberikan melalui QRIS atau transfer bank berikut:</p>
+                
+                <a class="btn btn-main" href="qris-sample.png" download><i class="fa-solid fa-download"></i> Download QRIS</a>
+
+                <div class="bank-cards">
+                    <div class="bank-card">
+                        <div class="bank-info">
+                            <h4>BANK BCA</h4>
+                            <p id="rekeing-bca">1234567890</p>
+                            <small>a.n. Sarah Amelia</small>
+                        </div>
+                        <button class="btn btn-light copy-btn" data-copy="1234567890"><i class="fa-regular fa-copy"></i> Salin</button>
+                    </div>
+                    <div class="bank-card">
+                        <div class="bank-info">
+                            <h4>BANK MANDIRI</h4>
+                            <p id="rekeing-mandiri">0987654321</p>
+                            <small>a.n. Rizky Ramadhan</small>
+                        </div>
+                        <button class="btn btn-light copy-btn" data-copy="0987654321"><i class="fa-regular fa-copy"></i> Salin</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="rsvp">
+            <div class="section-head">
+                <p class="eyebrow">Leave a note</p>
+                <h2 class="serif">RSVP & Ucapan</h2>
+                <p>Bagikan kabar kehadiran dan doa terbaik Anda untuk perjalanan kami.</p>
+            </div>
+            
+            <div class="rsvp">
+                <form id="form">
+                    <div class="form-group">
+                        <label for="name">Nama Anda</label>
+                        <input class="form-control" id="name" required placeholder="Nama lengkap">
+                    </div>
+                    <div class="form-group">
+                        <label>Konfirmasi Kehadiran</label>
+                        <div class="attendance">
+                            <button type="button" class="active" id="present"><i class="fa-solid fa-circle-check"></i>Hadir</button>
+                            <button type="button" id="absent"><i class="fa-regular fa-calendar-xmark"></i>Berhalangan hadir</button>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Pesan / Doa</label>
+                        <textarea class="form-control" id="message" rows="4" required placeholder="Tuliskan ucapan selamat dan doa..."></textarea>
+                    </div>
+                    <button class="btn btn-main" type="submit"><i class="fa-regular fa-paper-plane"></i> Kirim Ucapan</button>
+                </form>
+
+                <div class="wishes" id="wishes">
+                    <article class="wish">
+                        <div class="wish-header">
+                            <span class="wish-name">Budi Santoso, S.Pd</span>
+                            <span class="wish-status">Hadir</span>
+                        </div>
+                        <p>Selamat untuk Rizky & Sarah, semoga menjadi keluarga sakinah mawaddah warahmah. Aamiin.</p>
+                    </article>
+                    <article class="wish">
+                        <div class="wish-header">
+                            <span class="wish-name">Siti Fatimah</span>
+                            <span class="wish-status">Hadir</span>
+                        </div>
+                        <p>Barakallah! Lancar terus sampai hari H yaa Sarah & Rizky.</p>
+                    </article>
+                    <article class="wish">
+                        <div class="wish-header">
+                            <span class="wish-name">Rian Kurnia</span>
+                            <span class="wish-status absent">Berhalangan</span>
+                        </div>
+                        <p>Selamat bro, mohon maaf belum bisa hadir langsung karena tugas kantor.</p>
+                    </article>
+                    <article class="wish">
+                        <div class="wish-header">
+                            <span class="wish-name">Dina Amelia</span>
+                            <span class="wish-status">Hadir</span>
+                        </div>
+                        <p>Selamat ya Sarah & Rizky! Semoga bahagia selalu sampai kakek nenek.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p class="footer-kicker">Dengan penuh syukur</p>
+        <h2 class="footer-title script">Terima Kasih</h2>
+        <p class="footer-quote">“Doa dan restu Anda adalah cahaya yang mengiringi langkah kami.”</p>
+        <p class="footer-copy">Terima kasih atas kehadiran, doa, dan kasih sayang Bapak/Ibu/Saudara/i untuk Rizky & Sarah. Semoga setiap kebaikan yang diberikan kembali menjadi keberkahan untuk kita semua.</p>
+        <p class="signature">Rizky & Sarah</p>
+        <p class="brand-label">by Rapiddecor</p>
+        <div class="brand-links">
+            <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
+            <a href="#"><i class="fa-solid fa-globe"></i></a>
+        </div>
+    </footer>
+
+    <nav class="bottom-nav">
+        <a class="active" href="#home"><i class="fa-solid fa-house"></i>Home</a>
+        <a href="#couple"><i class="fa-solid fa-heart"></i>Couple</a>
+        <a href="#story"><i class="fa-solid fa-moon"></i>Story</a>
+        <a href="#event"><i class="fa-solid fa-calendar"></i>Event</a>
+        <a href="#gallery"><i class="fa-solid fa-images"></i>Gallery</a>
+        <a href="#gift"><i class="fa-solid fa-gift"></i>Gift</a>
+        <a href="#rsvp"><i class="fa-solid fa-comment"></i>RSVP</a>
+    </nav>
+
+    <div id="lightbox">
+        <button class="lightbox-btn" id="lightbox-close" aria-label="Tutup"><i class="fa-solid fa-xmark"></i></button>
+        <button class="lightbox-btn" id="lightbox-prev" aria-label="Sebelumnya"><i class="fa-solid fa-chevron-left"></i></button>
+        <img id="lightbox-image" src="" alt="Preview">
+        <button class="lightbox-btn" id="lightbox-next" aria-label="Berikutnya"><i class="fa-solid fa-chevron-right"></i></button>
+        <span id="lightbox-count"></span>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const cover = document.getElementById('cover'),
+                  audio = document.getElementById('audio'),
+                  days = document.getElementById('days'),
+                  hours = document.getElementById('hours'),
+                  mins = document.getElementById('mins'),
+                  secs = document.getElementById('secs'),
+                  form = document.getElementById('form'),
+                  nameInput = document.getElementById('name'),
+                  message = document.getElementById('message'),
+                  present = document.getElementById('present'),
+                  absent = document.getElementById('absent'),
+                  wishes = document.getElementById('wishes'),
+                  topBtn = document.getElementById('top-btn'),
+                  toast = document.getElementById('toast');
+                  
+            let playing = false;
+
+            const params = new URLSearchParams(location.search),
+                  guest = params.get('to') || params.get('dear') || params.get('kepada');
+            if(guest){
+                const name = decodeURIComponent(guest.replace(/\+/g, ' '));
+                document.querySelectorAll('.namatamu').forEach(e => e.textContent = name);
+                nameInput.value = name;
+            }
+
+            document.getElementById('open-btn').onclick = () => {
+                cover.classList.add('open');
+                document.body.classList.remove('locked');
+                audio.play().then(() => {
+                    playing = true;
+                    document.getElementById('music-btn').innerHTML = '<i class="fa-solid fa-volume-high"></i>';
+                }).catch(() => {});
+            };
+
+            document.getElementById('music-btn').onclick = () => {
+                if(playing){
+                    audio.pause();
+                    playing = false;
+                    document.getElementById('music-btn').innerHTML = '<i class="fa-solid fa-volume-xmark"></i>';
+                } else {
+                    audio.play();
+                    playing = true;
+                    document.getElementById('music-btn').innerHTML = '<i class="fa-solid fa-volume-high"></i>';
+                }
+            };
+
+            const target = new Date('December 25, 2026 10:00:00').getTime();
+            function tick(){
+                let d = Math.max(0, target - Date.now());
+                days.textContent = String(Math.floor(d / 86400000)).padStart(2, '0');
+                hours.textContent = String(Math.floor(d % 86400000 / 3600000)).padStart(2, '0');
+                mins.textContent = String(Math.floor(d % 3600000 / 60000)).padStart(2, '0');
+                secs.textContent = String(Math.floor(d % 60000 / 1000)).padStart(2, '0');
+            }
+            tick();
+            setInterval(tick, 1000);
+
+            function showToast(msg){
+                toast.textContent = msg;
+                toast.style.display = 'block';
+                setTimeout(() => { toast.style.display = 'none'; }, 2500);
+            }
+
+            document.querySelectorAll('.copy-btn').forEach(btn => {
+                btn.onclick = () => {
+                    const text = btn.getAttribute('data-copy');
+                    navigator.clipboard.writeText(text).then(() => {
+                        showToast('Nomor rekening berhasil disalin!');
+                    });
+                };
+            });
+
+            let attendance = 'Hadir';
+            present.onclick = () => {
+                attendance = 'Hadir';
+                present.classList.add('active');
+                absent.classList.remove('active');
+            };
+            absent.onclick = () => {
+                attendance = 'Berhalangan';
+                absent.classList.add('active');
+                present.classList.remove('active');
+            };
+
+            form.onsubmit = e => {
+                e.preventDefault();
+                if(!nameInput.value.trim() || !message.value.trim()) return;
+
+                const w = document.createElement('article');
+                w.className = 'wish reveal visible';
+                const isAbsent = attendance === 'Berhalangan' ? ' absent' : '';
+                w.innerHTML = '<div class="wish-header"><span class="wish-name">' + safe(nameInput.value.trim()) + '</span><span class="wish-status' + isAbsent + '">' + attendance + '</span></div><p>' + safe(message.value.trim()) + '</p>';
+                
+                wishes.prepend(w);
+                wishes.scrollTop = 0;
+                message.value = '';
+                showToast('Terima kasih, ucapan Anda telah terkirim!');
+            };
+
+            function safe(v){
+                return String(v).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[c]));
+            }
+
+            /* LIGHTBOX GALLERY */
+            const modal = document.getElementById('lightbox'),
+                  preview = document.getElementById('lightbox-image'),
+                  galleryImgs = [...document.querySelectorAll('.gallery-item img')];
+            let index = 0;
+
+            function show(i){
+                if(galleryImgs.length === 0) return;
+                index = (i + galleryImgs.length) % galleryImgs.length;
+                preview.src = galleryImgs[index].src;
+                preview.alt = galleryImgs[index].alt;
+                document.getElementById('lightbox-count').textContent = (index + 1) + ' / ' + galleryImgs.length;
+                modal.classList.add('show');
+                document.body.classList.add('locked');
+            }
+
+            function close(){
+                modal.classList.remove('show');
+                document.body.classList.remove('locked');
+            }
+
+            galleryImgs.forEach((img, i) => {
+                img.onclick = () => show(i);
+            });
+
+            document.getElementById('lightbox-close').onclick = close;
+            document.getElementById('lightbox-prev').onclick = () => show(index - 1);
+            document.getElementById('lightbox-next').onclick = () => show(index + 1);
+            modal.onclick = e => { if(e.target === modal) close(); };
+            document.onkeydown = e => {
+                if(!modal.classList.contains('show')) return;
+                if(e.key === 'Escape') close();
+                if(e.key === 'ArrowLeft') show(index - 1);
+                if(e.key === 'ArrowRight') show(index + 1);
+            };
+
+            topBtn.onclick = () => scrollTo({top: 0, behavior: 'smooth'});
+            addEventListener('scroll', () => topBtn.style.display = scrollY > 400 ? 'grid' : 'none', {passive: true});
+
+            /* ANIMASI SCROLL DIBUAT BISA RE-TRIGGER / MENGULANG */
+            const items = [...document.querySelectorAll('section,.soft-card,.gallery-item,.video,.qris,.wish,.story-photo,.parallax-motif')];
+            items.forEach((item, i) => {
+                item.classList.add('reveal');
+                item.style.transitionDelay = `${(i % 3) * 80}ms`;
+            });
+
+            const reveal = new IntersectionObserver(es => {
+                es.forEach(e => {
+                    if(e.isIntersecting) {
+                        e.target.classList.add('visible');
+                    } else {
+                        e.target.classList.remove('visible'); // Hilangkan class agar animasi mengulang
+                    }
+                });
+            }, { threshold: 0.12 });
+
+            items.forEach(i => reveal.observe(i));
+
+            const links = [...document.querySelectorAll('.bottom-nav a')],
+                  sections = links.map(a => document.querySelector(a.getAttribute('href'))).filter(Boolean);
+            const navObserver = new IntersectionObserver(es => es.forEach(e => {
+                if(e.isIntersecting) links.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + e.target.id));
+            }), {rootMargin: '-40% 0px -50%'});
+            sections.forEach(s => navObserver.observe(s));
+
+            const parallax = document.querySelector('[data-parallax]');
+            addEventListener('scroll', () => {
+                if(parallax){
+                    const o = (parallax.getBoundingClientRect().top - innerHeight / 2) * .12;
+                    parallax.style.backgroundPosition = `center calc(50% + ${o}px)`;
+                }
+            }, {passive: true});
+
+            const videoSection = document.getElementById('video');
+            const ytIframe = document.getElementById('youtube-video');
+            if(videoSection && ytIframe){
+                const videoObserver = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            ytIframe.contentWindow.postMessage('{"event":"command","func":"playVideo","args":""}', '*');
+                        } else {
+                            ytIframe.contentWindow.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');
+                        }
+                    });
+                }, { threshold: 0.5 });
+                videoObserver.observe(videoSection);
+            }
+        });
+    </script>
+</body>
+</html>
